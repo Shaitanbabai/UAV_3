@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление дроном</title>
+</head>
+<body>
+    <h1>Управление дроном T-1000</h1>
+    <button onclick="sendCommand('takeoff')">Взлет</button>
+    <button onclick="sendCommand('land')">Приземление</button>
+    <p id="droneStatus">Статус дрона: </p>
+    <div id="status" style="border: 1px solid #ccc; padding: 10px; width: 300px; height: 200px; overflow-y: scroll">
+        <p>Лог дрона: </p>
+    </div>
+
+    <script>
+        // Задание токена для авторизации
+const token = "valid_token";
+// Создание нового вебсокет-соединения с сервером с передачей токена в URL
+const socket = new WebSocket(`ws://localhost:8765/?token=${token}`);
+
+// Функция для обновления статуса на веб-странице
+function updateStatus(status) {
+    // Получение элемента для отображения статусов
+    const divStatus = document.getElementById("status");
+    // Создание нового элемента параграфа для нового статуса
+    const newStatus = document.createElement("p");
+    // Установка текста нового статуса
+    newStatus.textContent = status;
+    // Добавление нового статуса в элемент div
+    divStatus.appendChild(newStatus);
+    // Прокрутка вниз для отображения последнего статуса
+    divStatus.scrollTop = divStatus.scrollHeight;
+
+    // Обновление статуса дрона в отдельном элементе
+    const pStatus = document.getElementById("droneStatus");
+    pStatus.textContent = "Статус дрона: " + status;
+}
+
+    // Обработчик события открытия соединения
+    socket.onopen = () => {
+        console.log("Соединение установлено");
+    }
+
+    // Обработчик события получения сообщения от сервера
+    socket.onmessage = (event) => {
+        console.log("Сообщение от сервера:", event.data);
+        // Обновление статуса на веб-странице при получении нового сообщения
+        updateStatus(event.data);
+    }
+
+    // Функция для отправки команд на сервер
+    function sendCommand(command) {
+        // Отправка команды через вебсокет
+        socket.send(command);
+        console.log("Отправлена команда:", command);
+    }
+    </script>
+</body>
+</html>
