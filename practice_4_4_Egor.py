@@ -3,7 +3,7 @@ import cv2
 import time
 import random
 import logging
-# import airsim
+import airsim
 import numpy as np
 from pyinstrument import Profiler
 
