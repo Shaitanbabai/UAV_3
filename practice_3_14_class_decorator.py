@@ -1,6 +1,6 @@
 # Паттерн Команда и Стратегия
 from abc import ABC, abstractmethod
-from practiсe_3_14_2 import *
+from practice_3_14_2 import *
 
 # Класс для управления дроном, включает методы для выполнения основных команд
 class DroneController:
