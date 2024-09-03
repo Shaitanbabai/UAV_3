@@ -4,11 +4,6 @@ from practice_4_7_1 import *
 # pip install ultralytics
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 import torch
-""" Если ошибка импорта
-pip uninstall torch torchvision torchaudio
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-"""
-
 import numpy as np
 import pandas as pd
 import cv2
