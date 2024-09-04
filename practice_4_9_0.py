@@ -1,6 +1,15 @@
 import cv2
 import torch
 import os
+"""
+https://ffmpeg.org/download.html
+https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip
+загрузить в програм файлс, в Система, Доп папрметры\Параметры окружения прописать путь до аампг\бин
+я запуска видеопотока:
+запустить файл
+в терминале прописать команду ffplay udp://127.0.0.1:1234
+"""
+
 
 class ObjectDetection:
     def __init__(self):

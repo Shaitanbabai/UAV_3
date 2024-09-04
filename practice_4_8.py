@@ -5,7 +5,7 @@ from practice_4_7_1 import *
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 import torch
 import numpy as np
-import pandas as pd
+import pandas as pd7
 import cv2
 import requests
 

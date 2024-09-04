@@ -7,6 +7,7 @@ from numba import jit
 import numpy as np
 import unittest
 
+
 # app = Flask(__name__)
 
 class Altimeter:
