@@ -10,7 +10,7 @@ import cv2
 app = Flask(__name__)
 
 # Создаем функцию для захвата видеопотока
-def video_sttream():
+def video_stream():
     camera = cv2.VideoCapture("udp://127.0.0.1:1234", cv2.CAP_FFMPEG)  # перехватываем порт и добавляем обработчик
     while True:
         ret, frame = camera.read()
@@ -25,9 +25,9 @@ def video_sttream():
   # Возвращение ответа с типом MIME multipart/x-mixed-replace и границей frame
 @app.route('/video_feed')
 def video_feed():  # Создаем функцию для выдачи видеопотока в веб-интерфейс
-    return Response(video_sttream(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(video_stream(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/video')
+@app.route('/video_feed')
 def feed_2():
     return render_template('stream_4_11.html')
 
