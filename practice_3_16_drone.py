@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, Response, request, jsonify
 
+
 # Создаем экземпляр Flask приложения
 app = Flask(__name__)
 

@@ -1,5 +1,4 @@
 # 55.753789, 37.622576
-
 from practice_4_7_1 import *
 # pip install ultralytics
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
